@@ -25,10 +25,17 @@ dependencies:
   carousel_slider: ^4.2.1
   intl: ^0.19.0
   flutter_easyloading: ^3.0.5
+  flutter_launcher_icons: ^0.13.1
+
 
   #local db
   hive: ^2.2.3
   hive_flutter: ^1.1.0
+
+flutter_icons:
+  image_path: "assets/images/Yaanan.jpg"
+  android: true
+  ios: true
 
 dev_dependencies:
   flutter_test:
