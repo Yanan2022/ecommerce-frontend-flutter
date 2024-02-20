@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:frontend/model/add_banner.dart';
 import 'package:frontend/model/categor.dart';
 import 'package:frontend/model/product.dart';
+import 'package:frontend/model/user.dart';
 import 'package:frontend/route/app_page.dart';
 import 'package:frontend/route/app_route.dart';
 import 'package:get/get.dart';
 import 'package:frontend/theme/app_theme.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,6 +18,9 @@ void main() async {
   Hive.registerAdapter(AddBannerAdapter());
   Hive.registerAdapter(CategorAdapter());
   Hive.registerAdapter(ProductAdapter());
+  Hive.registerAdapter(UserAdapter());
+
+  configLoading();
   runApp(const MyApp());
 }
 
@@ -31,6 +36,23 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       themeMode: ThemeMode.light,
+      builder: EasyLoading.init(),
     );
   }
+}
+
+void configLoading() {
+  EasyLoading.instance
+    ..displayDuration = const Duration(milliseconds: 2000)
+    ..indicatorType = EasyLoadingIndicatorType.fadingCircle
+    ..loadingStyle = EasyLoadingStyle.dark
+    ..indicatorSize = 45.0
+    ..radius = 10.0
+    ..progressColor = Colors.white
+    ..backgroundColor = Colors.green
+    ..indicatorColor = Colors.white
+    ..textColor = Colors.white
+    ..userInteractions = false
+    ..maskType = EasyLoadingMaskType.black
+    ..dismissOnTap = true;
 }

@@ -24,6 +24,7 @@ dependencies:
   cached_network_image: ^3.3.1
   carousel_slider: ^4.2.1
   intl: ^0.19.0
+  flutter_easyloading: ^3.0.5
 
   #local db
   hive: ^2.2.3
